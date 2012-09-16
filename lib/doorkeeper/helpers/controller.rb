@@ -27,7 +27,7 @@ module Doorkeeper
       end
 
       def skip_authorization?
-        instance_eval &Doorkeeper.configuration.skip_authorization?
+        Doorkeeper.configuration.skip_authorization
       end
     end
   end
