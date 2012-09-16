@@ -142,6 +142,8 @@ module Doorkeeper
              logger.warn(I18n.translate('doorkeeper.errors.messages.credential_flow_not_configured'))
              nil
            }
+
+    option :skip_authorization, :default => false
     option :access_token_expires_in,      :default => 7200
     option :authorization_code_expires_in,:default => 600
     option :orm, :default => :active_record
@@ -156,6 +158,10 @@ module Doorkeeper
 
     def confirm_application_owner?
       !!@confirm_application_owner
+    end
+
+    def skip_authorization?
+      !!@skip_authorization
     end
 
     def default_scopes
